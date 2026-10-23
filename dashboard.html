@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management Dashboard</title>
+    <link rel="stylesheet" href="Css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Barra Lateral / Navegación -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <img src="./Pictures/082459.png" alt="Logo">
+                <span>InventoryApp</span>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="#" class="active">📦 Stock Management</a>
+                <a href="#">📊 Analytics</a>
+                <a href="#">⚙️ Settings</a>
+                <a href="index.html" class="logout-link">🚪 Sign Out</a>
+            </nav>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1>Stock Management</h1>
+                <p>Monitor, track, and update your product levels.</p>
+            </header>
+
+            <!-- Tarjetas de Resumen (KPIs) -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Items</h3>
+                    <p class="stat-number">74</p>
+                </div>
+                <div class="stat-card alert">
+                    <h3>Out of Stock</h3>
+                    <p class="stat-number">2</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Categories</h3>
+                    <p class="stat-number">5</p>
+                </div>
+            </section>
+
+            <!-- Barra de Herramientas -->
+            <div class="table-tools">
+                <div class="search-box">
+                    <input type="text" placeholder="Search by prenda, color..." id="searchInput">
+                </div>
+                <button class="btn-primary" onclick="toggleModal()">+ Add New Product</button>
+            </div>
+
+            <!-- Tabla de Datos (Basada en tu Postgres) -->
+            <div class="table-container">
+                <table class="inventory-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Gender</th>
+                            <th>Prenda</th>
+                            <th>Color</th>
+                            <th>Size</th>
+                            <th>Stock</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr>
+                            <td>#1</td>
+                            <td><span class="badge male">Male</span></td>
+                            <td><strong>Polo Shirt</strong></td>
+                            <td>Orange</td>
+                            <td>S</td>
+                            <td><span class="stock-status in-stock">15 units</span></td>
+                            <td><button class="btn-action">Edit</button></td>
+                        </tr>
+                        <tr>
+                            <td>#2</td>
+                            <td><span class="badge male">Male</span></td>
+                            <td><strong>Polo Shirt</strong></td>
+                            <td>Orange</td>
+                            <td>M</td>
+                            <td><span class="stock-status out-of-stock">0 units</span></td>
+                            <td><button class="btn-action">Edit</button></td>
+                        </tr>
+                        <tr>
+                            <td>#3</td>
+                            <td><span class="badge female">Female</span></td>
+                            <td><strong>Boots</strong></td>
+                            <td>N/A</td>
+                            <td>34</td>
+                            <td><span class="stock-status in-stock">5 units</span></td>
+                            <td><button class="btn-action">Edit</button></td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <script src="Js/fetchData.js"></script>
+</body>
+</html>

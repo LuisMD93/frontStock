@@ -1,0 +1,73 @@
+// --- 1. FUNCIONES DE RENDERIZADO Y DATOS ---
+
+// Función para cargar los datos del JSON
+async function cargarInventario() {
+    try {
+        const response = await Response.json("Js/Mandata.json"); // o fetch
+        // Nota: usa fetch real aquí
+        const data = await fetch("Js/Mandata.json").then(res => res.json());
+        return data;
+    } catch (error) {
+        console.error("Error al cargar el inventario:", error);
+        return [];
+    }
+}
+
+// Función para generar el HTML de una sola fila
+function crearFilaProducto(prod) {
+    const badgeClass = prod.genero.toLowerCase() === "hombre" ? "male" : "female";
+    const stockClass = prod.cantidad > 0 ? "in-stock" : "out-of-stock";
+
+    return `
+        <tr>
+            <td>#${prod.id}</td>
+            <td><span class="badge ${badgeClass}">${prod.genero}</span></td>
+            <td><strong>${prod.prenda}</strong></td>
+            <td>${prod.color}</td>
+            <td>${prod.talla}</td>
+            <td><span class="stock-status ${stockClass}">${prod.cantidad} unds</span></td>
+            <td><button class="btn-action" data-id="${prod.id}">Edit</button></td>
+        </tr>
+    `;
+}
+
+// Función para pintar toda la tabla en el DOM
+function renderizarTabla(tableBody, productos) {
+    tableBody.innerHTML = "";
+    productos.forEach(prod => {
+        tableBody.innerHTML += crearFilaProducto(prod);
+    });
+}
+
+// --- 2. FUNCIONES DE FILTRADO Y ACCIONES ---
+
+function configurarFiltro(searchInput, tableBody) {
+    if (!searchInput) return;
+
+    searchInput.addEventListener("input", () => {
+        const term = searchInput.value.toLowerCase().trim();
+        const rows = tableBody.querySelectorAll("tr");
+
+        rows.forEach(row => {
+            const prenda = row.cells[2]?.textContent.toLowerCase() || "";
+            const color = row.cells[3]?.textContent.toLowerCase() || "";
+
+            if (prenda.includes(term) || color.includes(term)) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
+    });
+}
+
+// (Futuro método de ejemplo para editar)
+function configurarBotonesEdicion() {
+    document.addEventListener("click", (e) => {
+        if (e.target.classList.contains("btn-action")) {
+            const id = e.target.getAttribute("data-id");
+            console.log("Editar producto con ID:", id);
+            // Aquí llamarías a tu función de abrir modal o editar
+        }
+    });
+}

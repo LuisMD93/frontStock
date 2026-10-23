@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Colaborador - Peticion par Dotacion</title>
+    <link rel="stylesheet" href="Css/user-portal.css">
+</head>
+<body>
+    <div class="portal-container">
+        <!-- Barra Lateral de Usuario -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <img src="./Pictures/082459.png" alt="Logo">
+                <span>Portal del personal</span>
+            </div>
+            <!-- Nombre del Usuario Logueado Dinámico -->
+            <div class="user-profile">
+                <div class="user-avatar">👤</div>
+                <div class="user-info">
+                    <h4 id="userNameDisplay">Loading...</h4>
+                    <p>Colaborador</p>
+                </div>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="#" class="active">👕 Peticion Uniforma</a>
+                <a href="index.html" class="logout-link">🚪 Cerrar Sesion</a>
+            </nav>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <header class="content-header">
+                <!-- Saludo con el nombre dinámico -->
+                <h1>Bienvenido, <span id="userGreeting">Colaborador</span>!</h1>
+               <p>Envía las tallas de tu uniforme y haz un seguimiento del estado de tu envío.</p>
+            </header>
+
+            <div class="portal-grid">
+                <!-- Formulario de Solicitud (Izquierda) -->
+                <section class="portal-card">
+                    <h2>Nueva peticion uniforme</h2>
+                    <form id="requestForm">
+                        <div class="input-group">
+                            <label for="uniformType">Prenda a solicitar</label>
+                         <select id="uniformType" required>   
+                         </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="uniformColor">Color</label>
+                            <select id="uniformColor" required>  
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="uniformSize">Size / Talla</label>
+                            <select id="uniformSize" required> 
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn-primary">Enviar peticion</button>
+                    </form>
+                </section>
+
+                <!-- Historial de Solicitudes y Notificaciones (Derecha) -->
+                <section class="portal-card">
+                    <h2>Mis peticiones y estado</h2>
+                    <div class="notifications-list">
+                        <!-- Ejemplo Notificación 1 -->
+                        <div class="notification-item">
+                            <div class="notif-icon success">✓</div>
+                            <div class="notif-details">
+                                <h4>Camibuso Fucsia (Talla M)</h4>
+                                <p>Listo para entregar</p>
+                                <span class="notif-time">Yesterday</span>
+                            </div>
+                            <span class="status-badge approved">Aprovado</span>
+                        </div>
+
+                        <!-- Ejemplo Notificación 2 -->
+                        <div class="notification-item">
+                            <div class="notif-icon pending">⏳</div>
+                            <div class="notif-details">
+                                <h4>Botas N/A (Talla 41)</h4>
+                                <p>Esperando confirmacion</p>
+                                <span class="notif-time">2 days ago</span>
+                            </div>
+                            <span class="status-badge pending">Pendiente</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="Js/main.js"></script>
+    <script src="Js/requestEquipment.js"></script>
+</body>
+</html>

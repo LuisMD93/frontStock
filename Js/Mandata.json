@@ -1,0 +1,313 @@
+
+[
+    {
+        "id": 1,
+        "genero": "Hombre",
+        "prenda": "Camibuso",
+        "color": "Naranja",
+        "talla": "S",
+        "cantidad": 15
+    },
+    {
+        "id": 2,
+        "genero": "Hombre",
+        "prenda": "Camibuso",
+        "color": "Naranja",
+        "talla": "M",
+        "cantidad": 0
+    },
+        {
+        "id": 3,
+        "genero": "Hombre",
+        "prenda": "Camibuso",
+        "color": "Naranja",
+        "talla": "L",
+        "cantidad": 1
+    },
+        {
+        "id": 4,
+        "genero": "Hombre",
+        "prenda": "Camibuso",
+        "color": "Naranja",
+        "talla": "XL",
+        "cantidad": 1
+    },
+        {
+        "id": 5,
+        "genero": "Hombre",
+        "prenda": "Camibuso",
+        "color": "Naranja",
+        "talla": "XXL",
+        "cantidad": 0
+    },
+    {
+        "id": 6,
+        "genero": "Hombre",
+        "prenda": "Camiseta",
+        "color": "Naranja",
+        "talla": "S",
+        "cantidad": 21
+    },
+    {
+        "id": 7,
+        "genero": "Hombre",
+        "prenda": "Camiseta",
+        "color": "Naranja",
+        "talla": "M",
+        "cantidad": 16
+    },
+    {
+        "id": 8,
+        "genero": "Hombre",
+        "prenda": "Camiseta",
+        "color": "Naranja",
+        "talla": "L",
+        "cantidad": 2
+    },
+
+    {
+        "id": 9,
+        "genero": "Hombre",
+        "prenda": "Camiseta",
+        "color": "Naranja",
+        "talla": "XL",
+        "cantidad": 1
+    },
+    {
+        "id": 10,
+        "genero": "Hombre",
+        "prenda": "Camiseta",
+        "color": "Naranja",
+        "talla": "XXL",
+        "cantidad": 4
+    },
+
+    {
+        "id": 11,
+        "genero": "Hombre",
+        "prenda": "Camibuso",
+        "color": "Blanco",
+        "talla": "S",
+        "cantidad": 6
+    },
+
+    {
+        "id": 11,
+        "genero": "Hombre",
+        "prenda": "Camibuso",
+        "color": "Blanco",
+        "talla": "M",
+        "cantidad": 2
+    },
+
+    {
+        "id": 12,
+        "genero": "Hombre",
+        "prenda": "Camibuso",
+        "color": "Blanco",
+        "talla": "L",
+        "cantidad": 2
+    },
+
+    {
+        "id": 12,
+        "genero": "Hombre",
+        "prenda": "Camibuso",
+        "color": "Blanco",
+        "talla": "XL",
+        "cantidad": 1
+    },
+
+    {
+        "id": 13,
+        "genero": "Hombre",
+        "prenda": "Camibuso",
+        "color": "Blanco",
+        "talla": "XXL",
+        "cantidad": 4
+    },
+
+    {
+        "id": 12,
+        "genero": "Hombre",
+        "prenda": "Camibuso",
+        "color": "Azul Turquesa",
+        "talla": "S",
+        "cantidad": 4
+    },
+
+    {
+        "id": 13,
+        "genero": "Hombre",
+        "prenda": "Camibuso",
+        "color": "Azul Turquesa",
+        "talla": "M",
+        "cantidad": 2
+    },
+
+    {
+        "id": 14,
+        "genero": "Hombre",
+        "prenda": "Camibuso",
+        "color": "Azul Turquesa",
+        "talla": "L",
+        "cantidad": 7
+    },
+
+    {
+        "id": 15,
+        "genero": "Hombre",
+        "prenda": "Camibuso",
+        "color": "Azul Turquesa",
+        "talla": "XL",
+        "cantidad": 1
+    },
+
+    {
+        "id": 16,
+        "genero": "Hombre",
+        "prenda": "Camibuso",
+        "color": "Azul Turquesa ",
+        "talla": "XXL",
+        "cantidad": 0
+    },
+
+    {
+        "id": 17,
+        "genero": "Hombre",
+        "prenda": "Camibuso",
+        "color": "Fucsia",
+        "talla": "S",
+        "cantidad": 9
+    },
+    {
+        "id": 18,
+        "genero": "Hombre",
+        "prenda": "Camibuso",
+        "color": "Fucsia",
+        "talla": "M",
+        "cantidad": 4
+    },
+    {
+        "id": 19,
+        "genero": "Hombre",
+        "prenda": "Camibuso",
+        "color": "Fucsia",
+        "talla": "L",
+        "cantidad": 11
+    },
+    {
+        "id": 20,
+        "genero": "Hombre",
+        "prenda": "Camibuso",
+        "color": "Fucsia",
+        "talla": "XL",
+        "cantidad": 3
+    },
+    {
+        "id": 21,
+        "genero": "Hombre",
+        "prenda": "Camibuso",
+        "color": "Fucsia",
+        "talla": "XXL",
+        "cantidad": 0
+    },
+    {
+        "id": 22,
+        "genero": "Hombre",
+        "prenda": "Jeans",
+        "color": "N/A",
+        "talla": "28",
+        "cantidad": 0
+    },
+    {
+        "id": 23,
+        "genero": "Hombre",
+        "prenda": "Jeans",
+        "color": "N/A",
+        "talla": "30",
+        "cantidad": 0
+    },
+    {
+        "id": 24,
+        "genero": "Hombre",
+        "prenda": "Jeans",
+        "color": "N/A",
+        "talla": "32",
+        "cantidad": 0
+    },
+    {
+        "id": 25,
+        "genero": "Hombre",
+        "prenda": "Jeans",
+        "color": "N/A",
+        "talla": "34",
+        "cantidad": 0
+    },
+    {
+        "id": 26,
+        "genero": "Hombre",
+        "prenda": "Jeans",
+        "color": "N/A",
+        "talla": "36",
+        "cantidad": 0
+    },
+    {
+        "id": 27,
+        "genero": "Hombre",
+        "prenda": "Jeans",
+        "color": "N/A",
+        "talla": "38",
+        "cantidad": 0
+    },
+    {
+        "id": 28,
+        "genero": "Hombre",
+        "prenda": "Jeans",
+        "color": "N/A",
+        "talla": "40",
+        "cantidad": 0
+    },
+    {
+        "id": 29,
+        "genero": "Hombre",
+        "prenda": "Botas",
+        "color": "N/A",
+        "talla": "40",
+        "cantidad": 0
+    },
+    {
+        "id": 30,
+        "genero": "Hombre",
+        "prenda": "Botas",
+        "color": "N/A",
+        "talla": "41",
+        "cantidad": 0
+    },
+    {
+        "id": 31,
+        "genero": "Hombre",
+        "prenda": "Botas",
+        "color": "N/A",
+        "talla": "42",
+        "cantidad": 0
+    },
+    {
+        "id": 32,
+        "genero": "Hombre",
+        "prenda": "Botas",
+        "color": "N/A",
+        "talla": "43",
+        "cantidad": 0
+    },
+    {
+        "id": 33,
+        "genero": "Hombre",
+        "prenda": "Botas",
+        "color": "N/A",
+        "talla": "44",
+        "cantidad": 0
+    }
+]
+
+

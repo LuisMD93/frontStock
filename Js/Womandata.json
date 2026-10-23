@@ -1,0 +1,33 @@
+[
+    { "id": 1, "genero": "Mujer", "prenda": "Camibuso", "color": "Blanco", "talla": "S", "cantidad": 1 },
+    { "id": 2, "genero": "Mujer", "prenda": "Camibuso", "color": "Blanco", "talla": "M", "cantidad": 2 },
+    { "id": 3, "genero": "Mujer", "prenda": "Camibuso", "color": "Blanco", "talla": "L", "cantidad": 2 },
+    { "id": 4, "genero": "Mujer", "prenda": "Camibuso", "color": "Blanco", "talla": "XL", "cantidad": 2 },
+    { "id": 5, "genero": "Mujer", "prenda": "Camibuso", "color": "Blanco", "talla": "XXL", "cantidad": 2 },
+
+    { "id": 6, "genero": "Mujer", "prenda": "Camibuso", "color": "Azul Turquesa", "talla": "S", "cantidad": 4 },
+    { "id": 7, "genero": "Mujer", "prenda": "Camibuso", "color": "Azul Turquesa", "talla": "M", "cantidad": 7 },
+    { "id": 8, "genero": "Mujer", "prenda": "Camibuso", "color": "Azul Turquesa", "talla": "L", "cantidad": 9 },
+    { "id": 9, "genero": "Mujer", "prenda": "Camibuso", "color": "Azul Turquesa", "talla": "XL", "cantidad": 10 },
+    { "id": 10, "genero": "Mujer", "prenda": "Camibuso", "color": "Azul Turquesa", "talla": "XXL", "cantidad": 0 },
+
+    { "id": 11, "genero": "Mujer", "prenda": "Camibuso", "color": "Fucsia", "talla": "S", "cantidad": 3 },
+    { "id": 12, "genero": "Mujer", "prenda": "Camibuso", "color": "Fucsia", "talla": "M", "cantidad": 6 },
+    { "id": 13, "genero": "Mujer", "prenda": "Camibuso", "color": "Fucsia", "talla": "L", "cantidad": 8 },
+    { "id": 14, "genero": "Mujer", "prenda": "Camibuso", "color": "Fucsia", "talla": "XL", "cantidad": 12 },
+    { "id": 15, "genero": "Mujer", "prenda": "Camibuso", "color": "Fucsia", "talla": "XXL", "cantidad": 8 },
+
+    { "id": 16, "genero": "Mujer", "prenda": "Jeans", "color": "N/A", "talla": "6", "cantidad": 1 },
+    { "id": 17, "genero": "Mujer", "prenda": "Jeans", "color": "N/A", "talla": "8", "cantidad": 1 },
+    { "id": 18, "genero": "Mujer", "prenda": "Jeans", "color": "N/A", "talla": "10", "cantidad": 1 },
+    { "id": 19, "genero": "Mujer", "prenda": "Jeans", "color": "N/A", "talla": "12", "cantidad": 1 },
+    { "id": 20, "genero": "Mujer", "prenda": "Jeans", "color": "N/A", "talla": "14", "cantidad": 1 },
+    { "id": 21, "genero": "Mujer", "prenda": "Jeans", "color": "N/A", "talla": "16", "cantidad": 1 },
+
+    { "id": 22, "genero": "Mujer", "prenda": "Botas", "color": "N/A", "talla": "34", "cantidad": 5 },
+    { "id": 23, "genero": "Mujer", "prenda": "Botas", "color": "N/A", "talla": "35", "cantidad": 5 },
+    { "id": 24, "genero": "Mujer", "prenda": "Botas", "color": "N/A", "talla": "36", "cantidad": 5 },
+    { "id": 25, "genero": "Mujer", "prenda": "Botas", "color": "N/A", "talla": "37", "cantidad": 5 },
+    { "id": 26, "genero": "Mujer", "prenda": "Botas", "color": "N/A", "talla": "38", "cantidad": 5 },
+    { "id": 27, "genero": "Mujer", "prenda": "Botas", "color": "N/A", "talla": "39", "cantidad": 5 }
+]
