@@ -1,10 +1,18 @@
-document.addEventListener("DOMContentLoaded", () => {
+// Js/components/dashboardView.js
+import { loadMenInventoryUseCase, loadWomenInventoryUseCase, updateProductUseCase } from '../use-cases/inventory/inventoryUseCases.js';
+
+export function initDashboard() {
+    
     const tableBody = document.querySelector(".inventory-table tbody");
     const searchInput = document.getElementById("searchInput");
     const cardHombre = document.getElementById("btnDotacionHombre");
     const cardMujer = document.getElementById("btnDotacionMujer");
+    const editModal = document.getElementById('editModal');
+    const editForm = document.getElementById('editForm'); // Asegúrate de que tu form tenga este ID en el HTML
 
-    // Función genérica para renderizar los datos en la tabla
+    if (!tableBody) return;
+
+    // Función para renderizar tabla
     function renderTable(data) {
         tableBody.innerHTML = "";
         data.forEach(prod => {
@@ -19,161 +27,107 @@ document.addEventListener("DOMContentLoaded", () => {
                  <td>${prod.color}</td>
                  <td>${prod.size}</td>
                  <td><span class="stock-status ${stockClass}">${prod.quantity} unds</span></td>
-                <td><button class="btn-action" onclick="editar('${prod.id}', '${prod.type}', '${prod.color}', '${prod.size}', ${prod.quantity})">Edit</button></td>
+                 <td><button class="btn-action btn-edit-trigger" data-product='${JSON.stringify(prod)}'>Edit</button></td>
                 </tr>
              `;
             tableBody.innerHTML += fila;
         });
         window.scrollTo({ top: 0, behavior: 'auto' });
+        attachRowEventListeners();
     }
 
-    // Función para cambiar los estilos activos de las tarjetas
     function setActiveCard(cardToActivate) {
         cardHombre.classList.remove("alert");
         cardMujer.classList.remove("alert");
-        
         cardToActivate.classList.add("alert");
     }
 
-    // --- CARGA INICIAL (Por defecto: Hombre) ---
-    // --- CARGA INICIAL Y EVENTO: Dotación Hombre ---
-    async function cargarHombre() {
-        // 1. Cambia el color de la tarjeta y muestra el mensaje de carga de INMEDIATO
+    // --- CARGAR HOMBRES ---
+    async function handleLoadMen() {
         setActiveCard(cardHombre);
         tableBody.innerHTML = `<tr><td colspan="7" style="text-align: center; color: var(--text-muted);">Cargando inventario de hombres...</td></tr>`;
-
         try {
-            const response = await fetch("http://localhost/Basic_Api/?accion=all");
-            if (!response.ok) throw new Error('Error al obtener datos de hombres');
-            
-            const data = await response.json();
-            renderTable(data); // Pinta los datos cuando llegan
+            const data = await loadMenInventoryUseCase();
+            renderTable(data);
         } catch (error) {
-            console.error("Error al cargar inventario de hombres:", error);
+            console.error(error);
             tableBody.innerHTML = `<tr><td colspan="7" style="text-align: center; color: var(--error);">Error al cargar los datos del servidor.</td></tr>`;
         }
     }
 
-    // Ejecutar carga inicial al abrir la página
-    cargarHombre();
-
-    // --- EVENTO: Click en Dotación Hombre ---
-    cardHombre.addEventListener("click",async () => {
-        cargarHombre();
-    });
-
-    // --- EVENTO: Click en Dotación Mujer ---
-    cardMujer.addEventListener("click", async () => {
+    // --- CARGAR MUJERES ---
+    async function handleLoadWomen() {
+        setActiveCard(cardMujer);
+        tableBody.innerHTML = `<tr><td colspan="7" style="text-align: center; color: var(--text-muted);">Cargando inventario de mujeres...</td></tr>`;
         try {
-            const response = await fetch('./Js/Womandata.json', {
-                method: 'GET',
-                headers: { 'Content-Type': 'application/json' }
-            });
-
-            if (!response.ok) throw new Error('Ocurrió un error al obtener los datos de mujer');
-
-            const data = await response.json();
+            const data = await loadWomenInventoryUseCase();
             renderTable(data);
-            setActiveCard(cardMujer); // Marca la tarjeta de mujer como activa y quita la de hombre
         } catch (error) {
-            console.error('Error en la petición de mujeres:', error);
+            console.error(error);
+            tableBody.innerHTML = `<tr><td colspan="7" style="text-align: center; color: var(--error);">Error al cargar los datos.</td></tr>`;
         }
-    });
+    }
 
-    // --- LÓGICA DEL FILTRO EN TIEMPO REAL ---
+    // Eventos de botones principales
+    cardHombre.addEventListener("click", handleLoadMen);
+    cardMujer.addEventListener("click", handleLoadWomen);
+
+    // Carga inicial
+    handleLoadMen();
+
+    // --- FILTRO EN TIEMPO REAL ---
     if (searchInput) {
         searchInput.addEventListener("input", () => {
             const term = searchInput.value.toLowerCase().trim();
             const rows = tableBody.querySelectorAll("tr");
-
             rows.forEach(row => {
                 const prenda = row.cells[2]?.textContent.toLowerCase() || "";
                 const color = row.cells[3]?.textContent.toLowerCase() || "";
-                
-                if (prenda.includes(term) || color.includes(term)) {
-                    row.style.display = "";
-                } else {
-                    row.style.display = "none";
-                }
+                row.style.display = (prenda.includes(term) || color.includes(term)) ? "" : "none";
             });
         });
     }
-});
 
-
-function editarx(id) {
-    alert(`Editar producto con ID: ${id}`);
-    // Aquí agregas la lógica para abrir tu modal de edición o cargar los datos
-}
-
-
-
-// Abrir el modal y rellenar los inputs con los datos actuales
-function editar(id, type, color, size, quantity) {
-
-    console.log(id);
-    
-    document.getElementById('editId').value = id;
-    document.getElementById('editType').value = type;
-    document.getElementById('editColor').value = color;
-    document.getElementById('editSize').value = size;
-    document.getElementById('editQuantity').value = quantity;
-
-    document.getElementById('editModal').style.display = 'flex';
-}
-
-// Cerrar el modal
-function cerrarModal() {
-    document.getElementById('editModal').style.display = 'none';
-}
-
-// Manejar el envío del formulario de edición
-async function  guardarEdicion(event) {
-    event.preventDefault(); // Evita que recargue la página
-
-    const id = document.getElementById('editId').value;
-    const type = document.getElementById('editType').value;
-    const color = document.getElementById('editColor').value;
-    const size = document.getElementById('editSize').value;
-    const quantity = document.getElementById('editQuantity').value;
-
-    console.log("Guardando cambios para el producto:", { id, type, color, size, quantity });
-
-  const productoModificado = {
-        id: id,
-        type: type,
-        color: color,
-        size: size,
-        quantity: quantity
-    };
-
-    try {
-        // Ajusta la URL según la ruta de tu API en PHP
-        const response = await fetch(`http://localhost/Basic_Api/?accion=actualizar&id=${id}`, {
-            method: 'POST', // O 'POST' si tu API de PHP usa POST para actualizar
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(productoModificado)
+    // --- MANEJO DEL MODAL Y EDICIÓN ---
+    function attachRowEventListeners() {
+        const editButtons = document.querySelectorAll(".btn-edit-trigger");
+        editButtons.forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                const prod = JSON.parse(e.currentTarget.getAttribute("data-product"));
+                document.getElementById('editId').value = prod.id;
+                document.getElementById('editType').value = prod.type;
+                document.getElementById('editColor').value = prod.color;
+                document.getElementById('editSize').value = prod.size;
+                document.getElementById('editQuantity').value = prod.quantity;
+                editModal.style.display = 'flex';
+            });
         });
-
-        if (!response.ok) {
-            throw new Error('Error al actualizar el producto en el servidor');
-        }
-
-        const resultado = await response.json();
-        console.log('Respuesta del servidor:', resultado);
-
-        // 1. Cierra el modal
-        cerrarModal();
-
-        // 2. Opcional: Recarga la tabla de hombres o actualiza la vista para ver los cambios
-        cargarHombre(); 
-
-    } catch (error) {
-        console.error('Error en la petición de actualización:', error);
-        alert('No se pudo actualizar el producto.');
     }
 
-    cerrarModal();
+    // Botón cerrar modal global o listener
+    window.cerrarModal = function() {
+        editModal.style.display = 'none';
+    };
+
+    // Guardar edición
+    window.guardarEdicion = async function(event) {
+        event.preventDefault();
+        const id = document.getElementById('editId').value;
+        const productData = {
+            id: id,
+            type: document.getElementById('editType').value,
+            color: document.getElementById('editColor').value,
+            size: document.getElementById('editSize').value,
+            quantity: document.getElementById('editQuantity').value
+        };
+
+        try {
+            await updateProductUseCase(id, productData);
+            window.cerrarModal();
+            handleLoadMen(); // Recarga la tabla activa
+        } catch (error) {
+            console.error(error);
+            alert('No se pudo actualizar el producto.');
+        }
+    };
 }
