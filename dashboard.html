@@ -15,7 +15,7 @@
                 <span>InventoryApp</span>
             </div>
             <nav class="sidebar-menu">
-                <a href="#" class="active">📦 Stock Management</a>
+                <a href="#" class="active">📦 Administrar Stock</a>
                 <a href="#">📊 Analytics</a>
                 <a href="#">⚙️ Settings</a>
                 <a href="index.html" class="logout-link">🚪 Sign Out</a>
@@ -25,18 +25,17 @@
         <!-- Contenido Principal -->
         <main class="main-content">
             <header class="content-header">
-                <h1>Stock Management</h1>
+                <h1>Administrar Stock</h1>
                 <p>Monitor, track, and update your product levels.</p>
             </header>
-
             <!-- Tarjetas de Resumen (KPIs) -->
             <section class="stats-grid">
-                <div class="stat-card">
-                    <h3>Total Items</h3>
+                <div class="stat-card" id="btnDotacionHombre">
+                    <h3>Dotacion Hombre</h3>
                     <p class="stat-number">74</p>
                 </div>
-                <div class="stat-card alert">
-                    <h3>Out of Stock</h3>
+                <div class="stat-card" id="btnDotacionMujer">
+                    <h3>Dotacion Mujer</h3>
                     <p class="stat-number">2</p>
                 </div>
                 <div class="stat-card">
@@ -44,7 +43,6 @@
                     <p class="stat-number">5</p>
                 </div>
             </section>
-
             <!-- Barra de Herramientas -->
             <div class="table-tools">
                 <div class="search-box">
@@ -100,6 +98,41 @@
             </div>
         </main>
     </div>
-    <script src="Js/fetchData.js"></script>
+    
+    <script src="Js/app.js"></script>
+    <!-- Modal de Edición -->
+<div id="editModal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+        <h2>Editar Producto</h2>
+        <form id="editForm" onsubmit="guardarEdicion(event)">
+            <input type="hidden" id="editId">
+            
+            <div class="form-group">
+                <label>Prenda</label>
+                <input type="text" id="editType" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Color</label>
+                <input type="text" id="editColor" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Talla (Size)</label>
+                <input type="text" id="editSize" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Stock (Cantidad)</label>
+                <input type="number" id="editQuantity" required>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" class="btn-secondary" onclick="cerrarModal()">Cancelar</button>
+                <button type="submit" class="btn-primary">Guardar Cambios</button>
+            </div>
+        </form>
+    </div>
+</div>
 </body>
 </html>
