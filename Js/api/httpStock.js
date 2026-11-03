@@ -1,4 +1,6 @@
-import { BASE_URL } from "Api/apiBase";
+import { BASE_URL } from '../../Api/apiBase.js';
+
+console.log(BASE_URL);
 
 
 export async function httpGet(endpoint) {

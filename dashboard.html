@@ -99,7 +99,10 @@
         </main>
     </div>
     
-    <script src="Js/app.js"></script>
+
+  <!-- <script src="Js/main.js"></script> -->
+  <script type="module" src="Js/main.js"></script>
+  
     <!-- Modal de Edición -->
 <div id="editModal" class="modal-overlay" style="display: none;">
     <div class="modal-content">
@@ -109,17 +112,17 @@
             
             <div class="form-group">
                 <label>Prenda</label>
-                <input type="text" id="editType" required>
+                <input type="text" id="editType" required disabled>
             </div>
             
             <div class="form-group">
                 <label>Color</label>
-                <input type="text" id="editColor" required>
+                <input type="text" id="editColor" required disabled>
             </div>
             
             <div class="form-group">
                 <label>Talla (Size)</label>
-                <input type="text" id="editSize" required>
+                <input type="text" id="editSize" required disabled>
             </div>
             
             <div class="form-group">

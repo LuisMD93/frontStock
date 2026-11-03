@@ -1,2 +1,2 @@
 
-export const api_base = 'http://localhost/Basic_Api/?action=';
+export const BASE_URL = 'http://localhost/Basic_Api/?action=';
